@@ -1,7 +1,7 @@
 <?php
     session_start();
-    require_once ("/var/www/MecaStock/security/sessionControle.php");
-    require_once ("/var/www/MecaStock/classes/Produit.php");
+    require_once ("security/sessionControle.php");
+    require_once ("classes/Produit.php");
     $nom = null;
     $desc = null;
     $emp = null;

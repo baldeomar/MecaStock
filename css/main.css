@@ -42,3 +42,16 @@ h1{
     height:50px;
     text-align: center;
 }
+
+.inc-modal {
+    position: fixed;
+    top: 25%;
+    left: 30%;
+    width: 40%;
+    background-color: #ffffff;
+    z-index: 1050;
+    display: none;
+    overflow: hidden;
+    -webkit-overflow-scrolling: touch;
+    outline: 0;
+}

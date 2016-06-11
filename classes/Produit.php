@@ -74,6 +74,7 @@
                 $produits = array();
                 while ($row = mysqli_fetch_assoc($result)) {
                     $produit = new Produit();
+                    $row = array_map("utf8_encode", $row);
                     $produit->id = $row['id'];
                     $produit->nom = $row['nom'];
                     $produit->desc = $row['description'];
@@ -120,5 +121,19 @@
                 $connectionSetting->close();
             }
             return $produits;
+        }
+        
+        function supprimerProduit($id){
+            try {
+                $connectionSetting = new ConnectionSettings();
+                $connectionSetting->connect();
+                $query = "DELETE FROM " . self::TABLE . " WHERE id = ".$id;
+                mysqli_query($connectionSetting->connection, $query);
+            }catch (mysqli_sql_exception $e){
+                error_log("Impossible de supprimer un produit: ".$e);
+                throw new Exception(mysqli_error($connectionSetting->connection));
+            }finally{
+                $connectionSetting->close();
+            }
         }
     }

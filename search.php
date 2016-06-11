@@ -6,10 +6,12 @@
     $json = array();
     foreach ($produits as $ligne) {
         $json[] = array(
+            'id' => $ligne->id,
             'nom' => $ligne->nom,
             'desc' => $ligne->desc,
             'emp' => $ligne->emp,
-            'prix' =>$ligne->prix
+            'prix' =>$ligne->prix,
+            'del' => ''
         );
     }
     $results = array(
